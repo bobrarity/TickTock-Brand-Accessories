@@ -1,0 +1,17 @@
+{% load static %}
+<div class="header_panel">
+    <div class="header_panel-item">
+        <img src="{% static 'store/images/icons/search_icon.svg' %}" alt="">
+    </div>
+    <div class="header_panel-item">
+        <a href="{% url 'favorite_products' %}">
+            <img src="{% static 'store/images/icons/basket_icon.svg' %}" alt="">
+        </a>
+    </div>
+    <div class="header_panel-item">
+        <img src="{% static 'store/images/icons/us_lang_icon.svg' %}" alt="">
+    </div>
+    <div class="header_panel-item">
+        <img src="{% static 'store/images/icons/user_icon.svg' %}" alt="">
+    </div>
+</div>

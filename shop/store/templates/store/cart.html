@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block header_text %}
+{% endblock header_text %}
+
+{% block header_poster %}
+{% endblock header_poster %}
+
+{% block main %}
+<main>
+    <div class="container" style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box-element">
+                    <div style="margin-bottom: 20px">
+                        <a href="{% url 'product_list' %}" class="btn btn-dark">
+                            Continue shopping
+                        </a>
+                        <a href="{% url 'clear_cart' %}" class="btn btn-danger">
+                            Clear cart
+                        </a>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th><h5>Products: <strong>{{ order.get_cart_total_quantity }}</strong></h5></th>
+                            <th><h5>Price: <strong>${{ order.get_cart_total_price }}</strong></h5></th>
+                            <th>
+                                <a href="{% url 'checkout' %}" class="btn btn-success"
+                                   style="float: right; margin: 5px;">Checkout</a>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <div class="box-element">
+                    <div class="cart-row">
+                        <div style="flex: 2;"></div>
+                        <div style="flex: 2;"><strong>Product</strong></div>
+                        <div style="flex: 1;"><strong>Price</strong></div>
+                        <div style="flex: 1;"><strong>Quantity</strong></div>
+                        <div style="flex: 1;"><strong>Total</strong></div>
+                    </div>
+                    {% for item in products %}
+                    {% include 'store/components/_cart_row.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}
